@@ -25,9 +25,10 @@ def root():
     <h3>1st task links</h3>
     <p><b>Please use links below or type them by yourself:</b></p>
     <ul>
-    <li><a href="https://1uzdevums.vercel.app/welcome">welcome</a></li>
-    <li><a href="https://1uzdevums.vercel.app/welcome/home">welcome/home</a></li>
-    <li><a href="https://1uzdevums.vercel.app/welcome/back">welcome/back</a></li>
+    <li><a href="https://weather-psi-nine.vercel.app/welcome">welcome</a></li>
+    <li><a href="https://weather-psi-nine.vercel.app/welcome/home">welcome/home</a></li>
+    <li><a href="https://weather-psi-nine.vercel.app/welcome/back">welcome/back</a></li>
+    <li><a href="https://weather-psi-nine.vercel.app/weather">weather</a></li>
     </ul>
     """
 
@@ -44,3 +45,7 @@ def welcome_home2():
 @app.route('/welcome/back/')
 def welcome_back2():
     return 'welcome back'
+
+@app.route('/weather')
+def weather():
+    return 'weather'
