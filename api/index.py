@@ -48,4 +48,4 @@ def welcome_back2():
 
 @app.route('/weather')
 def weather():
-    return 'weather'
+    return render_template('weather.html')
