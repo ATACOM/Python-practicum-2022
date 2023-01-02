@@ -1,7 +1,10 @@
 from flask import Flask, render_template
 import requests
 import json
-app = Flask(__name__, template_folder='Templates', static_url_path='', static_folder='static')
+app = Flask(__name__,
+            template_folder='templates',
+            static_url_path='',
+            static_folder='static')
 
 #Main tasks
 
@@ -15,7 +18,22 @@ def welcome_home():
 
 @app.route('/welcome/back')
 def welcome_back():
-    return 'welcome back'  
+    return 'welcome back'
+
+@app.route('/weather', methods=['GET', 'POST'])
+def get_weather():
+
+    if request.method == 'POST':
+        city = request.form.get('city_name').capitalize()
+        if len(city) == 0:
+            return render_template('laiks.html', no_city="You should write the name of a city in the box")
+        weather_url = 'https://api.openweathermap.org/data/2.5/weather?q=' + \
+            city + '&appid=60aa068482d6ddc251ae5f53570ac5fb&units=metric&mode=json'
+        weather_data = requests.get(weather_url).json()
+        if city in weather_data.values():
+            return render_template('laiks_result.html', data=weather_data, city_name=city)
+        else:
+            return render_template('nav.html')
 
 # For fun
 
@@ -47,24 +65,3 @@ def welcome_home2():
 @app.route('/welcome/back/')
 def welcome_back2():
     return 'welcome back'
-
-@app.route('/weather')
-def weather():
-    # Params
-adress = 'https://api.openweathermap.org/data/2.5/weather'
-appid = '60aa068482d6ddc251ae5f53570ac5fb'
-units = 'metric'
-city = 'Riga'
-
-# Request
-url = f"https://api.openweathermap.org/data/2.5/weather?appid={appid}&units={units}&q={city}"
-response = requests.get(url)
-
-# Parsing
-temperature = response.json().get("main").get("temp")
-
-#Print
-print("Temperature in",city,"is",temperature,"°C")
-    
-    
-    return 
