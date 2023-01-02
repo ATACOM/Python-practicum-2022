@@ -1,9 +1,5 @@
-import os
 from flask import Flask, render_template
-project_root = os.path.dirname(__file__)
-template_path = os.path.join(project_root, './')
-app = Flask(__name__, template_folder=template_path)
-
+app = Flask(__name__, template_folder='Templates', static_url_path='', static_folder='static'))
 
 #Main tasks
 
