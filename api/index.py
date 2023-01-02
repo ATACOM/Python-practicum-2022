@@ -1,4 +1,6 @@
 from flask import Flask, render_template
+import requests
+import json
 app = Flask(__name__, template_folder='Templates', static_url_path='', static_folder='static')
 
 #Main tasks
@@ -48,4 +50,21 @@ def welcome_back2():
 
 @app.route('/weather')
 def weather():
-    return render_template('weather.html')
+    # Params
+adress = 'https://api.openweathermap.org/data/2.5/weather'
+appid = '60aa068482d6ddc251ae5f53570ac5fb'
+units = 'metric'
+city = 'Riga'
+
+# Request
+url = f"https://api.openweathermap.org/data/2.5/weather?appid={appid}&units={units}&q={city}"
+response = requests.get(url)
+
+# Parsing
+temperature = response.json().get("main").get("temp")
+
+#Print
+print("Temperature in",city,"is",temperature,"°C")
+    
+    
+    return 
