@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	<title>{% block title %}{% endblock %}</title>
+    <style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid #e7e7e7;
+  background-color: #f3f3f3;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: #666;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #ddd;
+}
+
+li a.active {
+  color: white;
+  background-color: #04AA6D;
+}
+</style>
+  </head>
+  <body>
+<ul>
+  <li><a class="{% if title=='Home' %}active{%endif %}" href="{{ url_for('home') }}">HOME</a></li>
+  <li><a class="{% if title=='Welcome' %}active{%endif %}" href="{{ url_for('welcome') }}">Welcome</a></li>
+  <li><a class="{% if title=='Welcome home' %}active{%endif %}" href="{{ url_for('welcome_home') }}">Welcome home</a></li>
+  <li><a class="{% if title=='Welcome back' %}active{%endif %}" href="{{ url_for('welcome_back') }}">Welcome back</a></li>
+  <li><a class="{% if title=='Weather' %}active{%endif %}" href="{{ url_for('weather') }}">Weather</a></li>
+  <li><a class="{% if title=='Coords' %}active{%endif %}" href="{{ url_for('coords') }}">Coords</a></li>
+  <li><a class="{% if title=='Weather history' %}active{%endif %}" href="{{ url_for('weather_history') }}">Weather history</a></li>
+</ul>    
+    {% block content %}
+    {% endblock %}
+  </body>
+</html>
