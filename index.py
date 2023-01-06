@@ -75,6 +75,7 @@ def coords():
 
 @app.route('/weather_history')
 def weather_history():
+    # Load bulk data
     url="https://bulk.meteostat.net/v2/hourly/10637.csv.gz"
     df = pd.read_csv(url, compression='gzip', header=0, sep=' ', quotechar='"', error_bad_lines=False)
     df.to_excel(r'dataframe.xlsx', index=False)  
