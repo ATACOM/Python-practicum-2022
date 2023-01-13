@@ -1,0 +1,13 @@
+{% extends 'template.html' %}
+
+{% block title %} {{title}} {% endblock %}
+
+{% block content %}
+
+<h2>Cities log</h2>
+
+ {% for record in content %}
+            <div style="padding: 1px; vertical-align: middle; background-color: {{ loop.cycle('#f3f3f3', '#ddd') }}; margin: 3px"><p style="vertical-align: middle; font-size: 16px">{{ record.datums }} {{ record.city }} {{ record.action }} </p></div>
+        {% endfor %}
+
+{% endblock %}

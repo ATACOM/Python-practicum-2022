@@ -1,0 +1,18 @@
+{% extends 'template.html' %}
+
+{% block title %} {{title}} {% endblock %}
+
+{% block content %}
+
+<h2>Coordinates of {{city}} all over the world:</h2>
+
+ {% for record in content %}
+            <div style="padding: 5px;
+                        background-color: {{ loop.cycle('#f3f3f3', '#ddd') }};
+                        margin: 10px">
+                <p style="font-size: 12px">#{{ loop.index }}</p>
+                <p style="font-size: 14px">{{ record }}</p>
+            </div>
+        {% endfor %}
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'template.html' %}
+
+{% block title %} {{title}} {% endblock %}
+
+{% block content %}
+
+<h2>Temperatures of {{city}}:</h2>
+
+
+<img src="/static/chart.png"><br>
+<h4>{{stat}}</h4><br>
+<a href= '/static/dataframe.xlsx'>Download source XSLX</a><br>
+<a href= '/static/chart.pdf'>Download chart PDF</a><br>
+
+{% endblock %}

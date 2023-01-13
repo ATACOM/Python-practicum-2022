@@ -1,0 +1,22 @@
+{% extends 'template.html' %}
+
+{% block title %} {{title}} {% endblock %}
+
+{% block content %}
+
+<h2>Choose city:</h2>
+
+<body>
+        <form action="http://127.0.0.1:5000/weather" method = "post">
+            <div class="input-group mb-3">
+            <p><input type = "text" class="form-control" name="city" /></p>
+            <div class="input-group-append" id="button-addon2"></div>
+            <p><input type="submit" class="btn btn-outline-primary" value="Search temperature"></p>
+            </form>
+            </body></div></div>
+        </form>
+</body>
+
+{% endblock %}
+
+
