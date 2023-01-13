@@ -46,7 +46,7 @@ Pushing a button on your webpage<br/>
 Setting up a notification when a trigger temperature is reached<br/>
 
 # 4th  week tasks:
-Record each weather search in the log file<br/>
+✅ Record each weather search in the log file<br/>
 ✔️  Log: Date, Time, City, Temperature<br/>
 ✅ Create a route /log to display data for the last 5 searches<br/>
 ✔️  Think about persistent data. The last 5 searches must be displayed even after flask is restarted<br/>
