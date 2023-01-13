@@ -1,2 +1,2 @@
 # Python-practicum-2022
-All tasks
+All mandatory tasks done!
